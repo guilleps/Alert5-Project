@@ -11,7 +11,7 @@ load_dotenv()
 
 app = FastAPI(title="Prediccion de incidentes")
 
-frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")  # Valor por defecto si no existe
+frontend_url = os.getenv("FRONTEND_URL")  # Valor por defecto si no existe
 
 app.add_middleware(
     CORSMiddleware,
