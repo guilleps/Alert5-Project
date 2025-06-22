@@ -1,0 +1,20 @@
+export const SECTORES = [
+    { value: "Sto.Dominguito", label: "Sto. Dominguito" },
+    { value: "LaNoria", label: "La Noria" },
+    { value: "Primavera", label: "Primavera" },
+    { value: "VillaRosa", label: "Villa Rosa" },
+    { value: "LosJardines", label: "Los Jardines" },
+    { value: "ElCentro", label: "El Centro" },
+    { value: "BellaVista", label: "Bella Vista" },
+    { value: "LosPrados", label: "Los Prados" },
+    { value: "AltosDeArroyo", label: "Altos de Arroyo" },
+    { value: "Miraflores", label: "Miraflores" },
+    { value: "LosAlamos", label: "Los Alamos" },
+    { value: "LaEsperanza", label: "La Esperanza" },
+    { value: "MonteVerde", label: "Monte Verde" },
+    { value: "ElParaiso", label: "El Paraíso" },
+    { value: "LasColinas", label: "Las Colinas" },
+    { value: "SanIsidro", label: "San Isidro" },
+    { value: "LaCumbre", label: "La Cumbre" },
+    { value: "LosPinos", label: "Los Pinos" }
+]
