@@ -4,16 +4,18 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from schemas import PrediccionInput
 from mappings.codificadores import mapa_sector_inverso, sector_a_zona, mapa_zona_inverso, mapa_grupo_incidente
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Prediccion de incidentes")
 
-origins = [
-    "http://localhost:5173",
-]
+frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")  # Valor por defecto si no existe
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[frontend_url],
     allow_credentials=True,
     allow_methods=["POST", "GET"], 
     allow_headers=["Content-Type"],
