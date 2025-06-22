@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Shield, AlertTriangle, Loader2 } from 'lucide-react';
 import { IncidentPredictionInput, PredictionResult } from '@/services/dto';
 import { getPredictions } from '@/services/incidentService';
-import { SECTORES } from '@/constants/sectores';
+import { ZONA_A_SECTORES } from '@/constants/zona_a_sectores';
 
 const Index = () => {
   const [date, setDate] = useState('');
@@ -36,16 +36,13 @@ const Index = () => {
 
     try {
       const data = await getPredictions(dataToSend);
-      console.log('data', data);
 
-      const total = data.reduce((acc, curr) => acc + curr.probabilidad, 0);
       const normalized = data.map((item) => ({
         grupo: item.grupo,
-        probabilidad: Math.round((item.probabilidad / total) * 100),
+        probabilidad: Number((item.probabilidad * 100).toFixed(2)),
       }));
 
       setResults(normalized);
-      console.log('results', results);
     } catch (error) {
       console.error(error);
       alert("Hubo un error al consultar los incidentes.");
@@ -60,6 +57,11 @@ const Index = () => {
     if (probability >= 30) return 'bg-yellow-500';
     return 'bg-green-500';
   };
+
+  const zonas = Object.keys(ZONA_A_SECTORES);
+  const todosSectores = Array.from(new Set(Object.values(ZONA_A_SECTORES).flat()));
+
+  const sectoresFiltrados = zone ? ZONA_A_SECTORES[zone] : todosSectores;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex">
@@ -117,11 +119,11 @@ const Index = () => {
                     <SelectValue placeholder="Seleccionar zona" />
                   </SelectTrigger>
                   <SelectContent className="bg-slate-700 border-slate-600">
-                    <SelectItem value="centro">Centro</SelectItem>
-                    <SelectItem value="norte">Norte</SelectItem>
-                    <SelectItem value="sur">Sur</SelectItem>
-                    <SelectItem value="este">Este</SelectItem>
-                    <SelectItem value="oeste">Oeste</SelectItem>
+                    {zonas.map((z) => (
+                      <SelectItem key={z} value={z}>
+                        {z}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -133,9 +135,9 @@ const Index = () => {
                     <SelectValue placeholder="Seleccionar sector" />
                   </SelectTrigger>
                   <SelectContent className="bg-slate-700 border-slate-600">
-                    {SECTORES.map((s) => (
-                      <SelectItem key={s.value} value={s.value}>
-                        {s.label}
+                    {sectoresFiltrados.map((s) => (
+                      <SelectItem key={s} value={s}>
+                        {s}
                       </SelectItem>
                     ))}
                   </SelectContent>
