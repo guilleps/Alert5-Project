@@ -107,7 +107,6 @@ const Index = () => {
                     <SelectItem value="Mañana">Mañana</SelectItem>
                     <SelectItem value="Tarde">Tarde</SelectItem>
                     <SelectItem value="Noche">Noche</SelectItem>
-                    <SelectItem value="Madrugada">Madrugada</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

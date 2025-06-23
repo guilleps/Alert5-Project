@@ -3,7 +3,7 @@ export interface IncidentPredictionInput {
     mes: number;
     día: number;
     nombre_dia: string;     // 'Lunes', 'Martes', etc.
-    turno: 'Mañana' | 'Tarde' | 'Noche' | 'Madrugada';
+    turno: 'Mañana' | 'Tarde' | 'Noche';
     sector_nombre: string;
 }
 
