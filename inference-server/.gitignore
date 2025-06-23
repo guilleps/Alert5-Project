@@ -1,0 +1,27 @@
+# Archivos de modelos pesados
+*.keras
+*.pkl
+*.h5
+*.pb
+*.joblib
+
+# Carpeta de modelos entrenados exportados por TensorFlow Serving
+/models/
+/modelos/
+
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+*.log
+
+# Archivos de entorno virtual (por si usas uno aquí también)
+env/
+venv/
+.venv/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
