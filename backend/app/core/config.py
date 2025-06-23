@@ -4,6 +4,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     FRONTEND_URL: List[str] = ["http://localhost:5173"]
+    ML_URL: str = "http://localhost:8501"
 
     class Config:
         env_file = ".env"
