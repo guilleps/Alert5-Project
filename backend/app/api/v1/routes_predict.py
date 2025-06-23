@@ -24,10 +24,6 @@ import os
 
 router = APIRouter()
 
-@router.get("/health")
-def health_check():
-    return {"status": "ok"}
-
 @router.post("/predict")
 def prediccion(data: PrediccionInput):
     entrada = transformar_input_real(data)
