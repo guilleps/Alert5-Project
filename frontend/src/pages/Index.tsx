@@ -38,7 +38,7 @@ const Index = () => {
       const data = await getPredictions(dataToSend);
 
       const normalized = data.map((item) => ({
-        grupo: item.grupo,
+        grupo_incidente: item.grupo_incidente,
         probabilidad: Number((item.probabilidad * 100).toFixed(2)),
       }));
 
@@ -181,7 +181,7 @@ const Index = () => {
                     <tbody>
                       {results.map((result, index) => (
                         <tr key={index} className="border-t border-slate-700 hover:bg-slate-800/30 transition-colors duration-200">
-                          <td className="py-4 px-6 text-white font-medium">{result.grupo}</td>
+                          <td className="py-4 px-6 text-white font-medium">{result.grupo_incidente}</td>
                           <td className="py-4 px-6 text-right">
                             <Badge className={`${getProbabilityColor(result.probabilidad)} text-white font-bold px-3 py-1`}>
                               {result.probabilidad}%

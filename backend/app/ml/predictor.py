@@ -39,8 +39,6 @@ def predecir_top_5(entrada: dict):
     top_5_indices = prediction_array.argsort()[-5:][::-1]
     top_5_prob = prediction_array[top_5_indices]
 
-    # Mapear a nombres si ya tienes un diccionario
-    from app.mappings.codificadores import mapa_grupo_incidente
     top_5_result = [
         {
             "grupo_incidente": mapa_grupo_incidente[idx],

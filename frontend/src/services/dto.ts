@@ -8,6 +8,6 @@ export interface IncidentPredictionInput {
 }
 
 export interface PredictionResult {
-    grupo: string;
+    grupo_incidente: string;
     probabilidad: number;
 }
