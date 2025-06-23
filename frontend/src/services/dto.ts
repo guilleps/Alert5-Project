@@ -11,3 +11,11 @@ export interface PredictionResult {
     grupo_incidente: string;
     probabilidad: number;
 }
+
+export interface FeedbackPayload {
+    timestamp: string;
+    input_data: { fecha: string; turno: string; sector: string };
+    predicted: string[];
+    feedback: string;
+    actual_incident: string[];
+}
