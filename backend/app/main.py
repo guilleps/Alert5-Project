@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.routes_predict import router as predict_router
+from app.api.v1.routes_feedback import router as feedback_router
 from app.core.config import get_settings
+from app.core.scheduler import start_scheduler
 
 app = FastAPI(title="Predicción de Incidentes")
 
@@ -17,3 +19,6 @@ app.add_middleware(
 )
 
 app.include_router(predict_router, tags=["Prediccion"])
+app.include_router(feedback_router, tags=["Feedback"])
+
+start_scheduler()
